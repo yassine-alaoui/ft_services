@@ -15,6 +15,5 @@ RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf
 #needed files
 COPY setup.sh /
-VOLUME [ "/var/run/docker.sock" ]
 EXPOSE 8086
-CMD sh setup.sh
+CMD ["sh", "setup.sh"]

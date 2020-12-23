@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: db-influxdb
   labels:
-    app: db
+    app: influxdb
 spec:
   ports:
     - port: 8086
   selector:
-    app: db
+    app: influxdb
     tier: influxdb
   type: ClusterIP
   clusterIP: 10.99.99.69
@@ -18,7 +18,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: influxdb-pv-claim
   labels:
-    app: db
+    app: influxdb
 spec:
   accessModes:
     - ReadWriteOnce
@@ -31,18 +31,18 @@ kind: Deployment
 metadata:
   name: db-influxdb
   labels:
-    app: db
+    app: influxdb
 spec:
   selector:
     matchLabels:
-      app: db
+      app: influxdb
       tier: influxdb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: db
+        app: influxdb
         tier: influxdb
     spec:
       containers:
@@ -55,7 +55,12 @@ spec:
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /var/lib/influxdb
+        - name: docker-storage
+          mountPath: /var/run/docker.sock
       volumes:
       - name: influxdb-persistent-storage
         persistentVolumeClaim:
           claimName: influxdb-pv-claim
+      - name: docker-storage
+        hostPath:
+          path: /var/run/docker.sock
