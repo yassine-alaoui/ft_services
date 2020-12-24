@@ -15,5 +15,6 @@ RUN mkdir -p /etc/telegraf
 COPY telegraf.conf /etc/telegraf
 #needed files
 COPY setup.sh /
+COPY influxdb.conf /etc/
 EXPOSE 8086
 CMD ["sh", "setup.sh"]

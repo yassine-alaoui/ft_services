@@ -15,5 +15,4 @@ mysql -u root < wp_db.sql
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'yassine'@'%' IDENTIFIED BY 'yassine';"
 mysql -u root -e "FLUSH PRIVILEGES;";
 rc-service mariadb restart
-# telegraf start
 top

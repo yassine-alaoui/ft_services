@@ -9,7 +9,6 @@ COPY setup.sh /
 COPY wp_db.sql /
 COPY mariadb-server.cnf /etc/my.cnf.d
 #the final commands
-VOLUME ["/var/lib/mysql"]
 EXPOSE 3306
+VOLUME ["/var/lib/mysql"]
 CMD sh setup.sh
-# EXPOSE 5050
