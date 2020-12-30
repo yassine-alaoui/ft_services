@@ -13,6 +13,9 @@ spec:
     -  name: http
        port: 80
        targetPort: 80
+    -  name: ssh
+       port: 22
+       targetPort: 22
     -  name: https
        port: 443
        targetPort: 443
@@ -43,3 +46,5 @@ spec:
           name: "n-http"
         - containerPort: 443
           name: "n-https"
+        - containerPort: 22
+          name: "n-ssh"

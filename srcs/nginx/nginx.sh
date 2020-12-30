@@ -1,2 +1,2 @@
 mkdir -p /run/nginx
-nginx -g 'daemon off;'; nginx -s reload;
+nginx -g 'daemon off;';

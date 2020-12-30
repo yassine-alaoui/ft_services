@@ -37,3 +37,10 @@ spec:
         ports:
         - containerPort: 5050
           name: wordpress
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /wordpress/index.php
+          initialDelaySeconds: 5
+          periodSeconds: 1
