@@ -4,6 +4,10 @@ source ~/.zshrc
 # sed -i '' "s/$(minikube ip)/'MINIKUBE_IP'/g" srcs/mysql/wp_db.sql
 minikube delete
 minikube start
+eval $(minikube docker-env)
+# minikube addons enable metallb
+docker pull metallb/speaker:v0.9.5
+docker pull metallb/controller:v0.9.5
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
 # On first install only
@@ -11,7 +15,6 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 # sed -i '' "s/MINIKUBE_IP/$(minikube ip)/g" srcs/minikube_setup/metallb.yaml
 # sed -i '' "s/'MINIKUBE_IP'/$(minikube ip)/g" srcs/mysql/wp_db.sql
 kubectl create -f srcs/minikube_setup/metallb.yaml
-# eval $(minikube docker-env)
 eval $(minikube docker-env)
 docker build -t d_mysql srcs/mysql/
 docker build -t d_wordpress srcs/wordpress/
