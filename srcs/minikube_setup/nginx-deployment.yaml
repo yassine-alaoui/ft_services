@@ -48,3 +48,17 @@ spec:
           name: "n-https"
         - containerPort: 22
           name: "n-ssh"
+        volumeMounts:
+          - name: nginx-persistent-storage
+            mountPath: /var/www/localhost/ftpdocs
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - health.sh
+          initialDelaySeconds: 5
+          periodSeconds: 1
+      volumes:
+      - name: nginx-persistent-storage
+        persistentVolumeClaim:
+          claimName: ftp-pv-claim

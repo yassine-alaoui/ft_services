@@ -21,6 +21,7 @@ RUN tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN rm phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN mv phpMyAdmin-5.0.2-all-languages phpmyadmin
 COPY config.inc.php /phpmyadmin/
+COPY health.sh /
 RUN ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 ##here end
 #run nginx

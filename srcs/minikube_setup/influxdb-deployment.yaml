@@ -52,6 +52,13 @@ spec:
         ports:
         - containerPort: 8086
           name: influxdb
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - health.sh
+          initialDelaySeconds: 5
+          periodSeconds: 1
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /var/lib/influxdb

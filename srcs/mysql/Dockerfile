@@ -8,7 +8,7 @@ RUN apk add openrc
 COPY setup.sh /
 COPY wp_db.sql /
 COPY mariadb-server.cnf /etc/my.cnf.d
+COPY health.sh /
 #the final commands
 EXPOSE 3306
-VOLUME ["/var/lib/mysql"]
 CMD sh setup.sh

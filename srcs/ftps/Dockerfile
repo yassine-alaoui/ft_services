@@ -5,4 +5,10 @@ RUN apk update && apk upgrade
 RUN apk add openssl
 #add ftp
 RUN apk add vsftpd
-CMD 
+#copy stuff
+COPY ftps.conf /etc/vsftpd/vsftpd.conf
+COPY cert.pem /vsftpd.pem
+COPY cert.key /vsftpd.key
+COPY start.sh /
+#Run
+CMD ["sh", "start.sh"]

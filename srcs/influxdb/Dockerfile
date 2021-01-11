@@ -16,5 +16,6 @@ COPY telegraf.conf /etc/telegraf
 #needed files
 COPY setup.sh /
 COPY influxdb.conf /etc/
+COPY health.sh /
 EXPOSE 8086
 CMD ["sh", "setup.sh"]

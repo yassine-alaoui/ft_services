@@ -12,6 +12,7 @@ COPY cert.key ./etc/nginx/./cert.key
 COPY cert.pem ./etc/nginx/./cert.pem
 #copy the nginx.sh
 COPY nginx.sh ./nginx.sh
+COPY health.sh /
 #simple test
 RUN echo "<h1 style='color : red;padding-left : 45vw'>Hello world!</h1>" > /var/www/localhost/htdocs/index.html;
 #run nginx

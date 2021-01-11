@@ -40,7 +40,7 @@ spec:
         livenessProbe:
           exec:
             command:
-            - cat
-            - /wordpress/index.php
+            - sh
+            - health.sh
           initialDelaySeconds: 5
           periodSeconds: 1
