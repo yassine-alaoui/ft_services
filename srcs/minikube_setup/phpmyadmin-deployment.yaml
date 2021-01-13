@@ -43,4 +43,4 @@ spec:
             - sh
             - health.sh
           initialDelaySeconds: 5
-          periodSeconds: 1
+          periodSeconds: 2
