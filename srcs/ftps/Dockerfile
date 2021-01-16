@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.10
 #updates
 RUN apk update && apk upgrade
 #add rc

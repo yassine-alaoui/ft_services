@@ -10,7 +10,7 @@ rc-service mariadb start
 #create user & data base
 chown -R mysql: /var/lib/mysql
 mysql -u root -e "CREATE DATABASE wp_db;"
-mysql -u root < wp_db.sql
+mysql -u root wp_db < wp_db.sql
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'yassine'@'%' IDENTIFIED BY 'yassine';"
 mysql -u root -e "FLUSH PRIVILEGES;";
 rc-service mariadb restart

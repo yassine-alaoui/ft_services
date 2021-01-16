@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.10
 RUN apk update && apk upgrade
 #install nginx
 RUN apk add nginx
