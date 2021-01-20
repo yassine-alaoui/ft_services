@@ -1,7 +1,8 @@
-minikube delete
+# minikube delete
 minikube start
-eval $(minikube docker-env)
 minikube addons enable metallb
+sleep 5
+eval $(minikube docker-env)
 docker build -t d_mysql srcs/mysql/
 docker build -t d_wordpress srcs/wordpress/
 docker build -t d_phpmyadmin srcs/phpmyadmin/

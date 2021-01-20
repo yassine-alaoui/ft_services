@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.12
 RUN apk update && apk upgrade
 #install mariadb
 RUN apk add --no-cache mariadb mariadb-client mariadb-common
@@ -10,5 +10,4 @@ COPY wp_db.sql /
 COPY mariadb-server.cnf /etc/my.cnf.d
 COPY health.sh /
 #the final commands
-EXPOSE 3306
 CMD sh setup.sh

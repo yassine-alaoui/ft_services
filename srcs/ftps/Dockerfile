@@ -1,7 +1,7 @@
-FROM alpine:3.10
+FROM alpine:3.12
 #updates
 RUN apk update && apk upgrade
-#add rc
+#add ssl
 RUN apk add openssl
 #add ftp
 RUN apk add vsftpd
