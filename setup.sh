@@ -1,4 +1,3 @@
-# minikube delete
 minikube start
 minikube addons enable metallb
 sleep 5
